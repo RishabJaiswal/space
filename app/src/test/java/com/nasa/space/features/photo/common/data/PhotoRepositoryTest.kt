@@ -11,7 +11,7 @@ class PhotoRepositoryTest {
     private val photoApiService: PhotoApiService = mock(PhotoApiService::class.java)
 
     @Test
-    fun `verify successful read call for getting photos returns the data`() {
+    fun `verify successful api call for getting photos returns the data`() {
         //given
         val photos: Photos = arrayListOf(
             Photo(title = "Milky way"),
