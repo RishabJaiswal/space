@@ -6,7 +6,11 @@ import org.junit.Test
 class UtilsTest {
     @Test
     fun `verify utility method to get file content as string`() {
-        val fileContent = Utils.geFileAsString(this, "/dummy.txt")
+        //given
+        val filePath = "/dummy.txt"
+        //when
+        val fileContent = Utils.geFileAsString(this, filePath)
+        //then
         assertEquals("hello Obvious", fileContent)
     }
 }
