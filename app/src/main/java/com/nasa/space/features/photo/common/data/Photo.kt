@@ -10,20 +10,20 @@ val photosType: Type = object : TypeToken<Photos>() {}.type
 
 data class Photo(
     @SerializedName("title")
-    val title: String,
+    val title: String = "",
 
     @SerializedName("explanation")
-    val details: String,
+    val details: String = "",
 
     @SerializedName("url")
-    val thumbnailUrl: String,
+    val thumbnailUrl: String = "",
 
     @SerializedName("hdurl")
-    val hdUrl: String,
+    val hdUrl: String = "",
 
     @SerializedName("copyright")
-    val copyrightOwner: String,
+    val copyrightOwner: String = "",
 
     @SerializedName("date")
-    val clickedOn: Date
+    val clickedOn: Date? = null
 )
