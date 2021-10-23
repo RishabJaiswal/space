@@ -31,4 +31,12 @@ class ResultTest {
         assertThat(Error("").hasData(), `is`(true))
         assertThat(Error<Any>().hasData(), `is`(false))
     }
+
+    @Test
+    fun `verify result states equality`() {
+        assertThat(Default(""), `is`(Default("")))
+        assertThat(Loading(""), `is`(Loading("")))
+        assertThat(Success(""), `is`(Success("")))
+        assertThat(Error(""), `is`(Error("")))
+    }
 }
