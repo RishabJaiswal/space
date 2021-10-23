@@ -12,6 +12,14 @@ data class Default<T>(
     override val data: T? = null
 ) : Result<T>()
 
-data class Loading<T>(override val data: T? = null) : Result<T>()
-data class Success<T>(override val data: T? = null) : Result<T>()
-data class Error<T>(override val data: T? = null) : Result<T>()
+data class Loading<T>(
+    override val data: T? = null
+) : Result<T>()
+
+data class Success<T>(
+    override val data: T? = null
+) : Result<T>()
+
+data class Error<T>(
+    override val data: T? = null
+) : Result<T>(data)
