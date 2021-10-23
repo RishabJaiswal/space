@@ -5,9 +5,10 @@ package com.nasa.space.common
  * */
 abstract class Result<T> (val data: T? = null) {
     fun isLoading() = this is Loading
+    fun hasData() = data != null
 }
 
-class Default<T>: Result<T>()
-class Loading<T>: Result<T>()
-class Success<T>: Result<T>()
-class Error<T>: Result<T>()
+class Default<T>(data: T? = null): Result<T>(data)
+class Loading<T>(data: T? = null): Result<T>(data)
+class Success<T>(data: T? = null): Result<T>(data)
+class Error<T>(data: T? = null): Result<T>(data)
