@@ -5,7 +5,7 @@ import com.nasa.space.common.Utils
 import io.reactivex.rxjava3.core.Single
 
 /**
- * mocking api service by getting data locally
+ * creating an emulating api service by getting data locally
  **/
 class PhotoApiService(
     private val dataSource: String = "/jsons"
