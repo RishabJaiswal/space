@@ -3,6 +3,7 @@ package com.nasa.space.features.photo.common.data
 import com.google.gson.Gson
 import com.nasa.space.common.Utils
 import org.junit.Test
+import java.lang.NullPointerException
 
 class PhotoApiServiceTest {
 
@@ -18,5 +19,17 @@ class PhotoApiServiceTest {
             .test()
             .assertValue(photos)
             .assertComplete()
+    }
+
+    @Test
+    fun `verify unsuccessful read call for getting photos throws exception`() {
+        //given
+        val wrongDataSource = "/wrongPath"
+
+        //when
+        PhotoApiService(wrongDataSource).getPhotos()
+            //then
+            .test()
+            .assertFailure(NullPointerException::class.java)
     }
 }
