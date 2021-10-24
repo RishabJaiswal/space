@@ -27,6 +27,14 @@ class ResultTest {
     }
 
     @Test
+    fun `verify method to check if result is success`() {
+        assertThat(Default<Any>().isSuccess(), `is`(false))
+        assertThat(Loading<Any>().isSuccess(), `is`(false))
+        assertThat(Success<Any>().isSuccess(), `is`(true))
+        assertThat(Error<Any>(error = error).isSuccess(), `is`(false))
+    }
+
+    @Test
     fun `verify method to check if any result state contains data `() {
         //default
         assertThat(Default("").hasData(), `is`(true))
