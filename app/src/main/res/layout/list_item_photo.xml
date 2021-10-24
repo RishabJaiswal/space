@@ -26,11 +26,12 @@
     <ImageView
         android:id="@+id/photo"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/spacePhoto_contentDescription_default"
         android:cropToPadding="false"
         android:scaleType="centerCrop"
+        android:background="@drawable/list_photo_outline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
