@@ -8,8 +8,8 @@ import java.util.*
 
 typealias Photos = List<Photo>
 typealias PhotosResult = Result<Photos>
-val photosType: Type = object : TypeToken<Photos>() {}.type
 
+val photosType: Type = object : TypeToken<Photos>() {}.type
 
 data class Photo(
     @SerializedName("title")
