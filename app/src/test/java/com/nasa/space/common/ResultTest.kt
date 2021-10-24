@@ -34,6 +34,22 @@ class ResultTest {
         assertThat(Error<Any>(error = error).isSuccess(), `is`(false))
     }
 
+
+    @Test
+    fun `verify if result states has valid data`() {
+        //given
+        val default = Default("Hello")
+        val loading = Loading("Obvious")
+        val success = Success("I love Craftspeople")
+        val error = Error("!", error = error)
+
+        //when //then
+        assertThat(default.data, `is`("Hello"))
+        assertThat(loading.data, `is`("Obvious"))
+        assertThat(success.data, `is`("I love Craftspeople"))
+        assertThat(error.data, `is`("!"))
+    }
+
     @Test
     fun `verify method to check if any result state contains data `() {
         //default
