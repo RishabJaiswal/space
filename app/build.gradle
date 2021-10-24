@@ -50,6 +50,8 @@ dependencies {
     //reactive programming
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.6'
+    //image loading
+    implementation 'com.squareup.picasso:picasso:2.8'
     //dependency injection
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-compiler:2.38.1"
