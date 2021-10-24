@@ -5,6 +5,7 @@ package com.nasa.space.common
  * */
 sealed class Result<T>(open val data: T? = null) {
     fun isLoading() = this is Loading
+    fun isError() = this is Error
     fun hasData() = data != null
 }
 
@@ -21,5 +22,6 @@ data class Success<T>(
 ) : Result<T>()
 
 data class Error<T>(
-    override val data: T? = null
+    override val data: T? = null,
+    val error: Throwable
 ) : Result<T>(data)

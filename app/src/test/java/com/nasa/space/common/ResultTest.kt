@@ -3,14 +3,27 @@ package com.nasa.space.common
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.Test
 import org.hamcrest.MatcherAssert.assertThat
+import org.junit.BeforeClass
+import java.lang.NullPointerException
 
 class ResultTest {
+
+    private val error = NullPointerException()
+
     @Test
     fun `verify method to check if result is loading`() {
         assertThat(Default<Any>().isLoading(), `is`(false))
         assertThat(Loading<Any>().isLoading(), `is`(true))
         assertThat(Success<Any>().isLoading(), `is`(false))
-        assertThat(Error<Any>().isLoading(), `is`(false))
+        assertThat(Error<Any>(error = error).isLoading(), `is`(false))
+    }
+
+    @Test
+    fun `verify method to check if result is error`() {
+        assertThat(Default<Any>().isError(), `is`(false))
+        assertThat(Loading<Any>().isError(), `is`(false))
+        assertThat(Success<Any>().isError(), `is`(false))
+        assertThat(Error<Any>(error = error).isError(), `is`(true))
     }
 
     @Test
@@ -28,8 +41,9 @@ class ResultTest {
         assertThat(Success<Any>().hasData(), `is`(false))
 
         //error
-        assertThat(Error("").hasData(), `is`(true))
-        assertThat(Error<Any>().hasData(), `is`(false))
+        val error = NullPointerException()
+        assertThat(Error("", error).hasData(), `is`(true))
+        assertThat(Error<Any>(error = error).hasData(), `is`(false))
     }
 
     @Test
