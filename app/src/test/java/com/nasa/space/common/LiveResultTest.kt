@@ -1,10 +1,16 @@
 package com.nasa.space.common
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.TestRule
 
 class LiveResultTest {
+
+    @get:Rule
+    val rule: TestRule = InstantTaskExecutorRule()
 
     private val error = NullPointerException()
 
@@ -66,5 +72,27 @@ class LiveResultTest {
             LiveResult<Any>(Error(throwable = error)).isSuccess(),
             `is`(false)
         )
+    }
+
+
+    @Test
+    fun `verify changes in the state of live result`() {
+        //given
+        val liveResult = LiveResult<String>(Default())
+
+        //when
+        liveResult.loading("Hello Obvious")
+        ///then
+        assertThat(liveResult.isLoading(), `is`(true))
+
+        //when
+        liveResult.success("I love TDD & clean code")
+        ///then
+        assertThat(liveResult.isSuccess(), `is`(true))
+
+        //when
+        liveResult.error("!", throwable = error)
+        ///then
+        assertThat(liveResult.isError(), `is`(true))
     }
 }
