@@ -8,6 +8,9 @@ class LiveResult<T>(initialResult: Result<T>) : MutableLiveData<Result<T>>(initi
     fun isSuccess() = this.value?.isSuccess() ?: false
     fun isError() = this.value?.isError() ?: false
 
+    fun getData() = this.value?.data
+    fun getError() = this.value?.getError()
+
     fun loading(data: T? = null) {
         value = Loading(data)
     }

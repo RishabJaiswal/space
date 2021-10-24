@@ -2,7 +2,9 @@ package com.nasa.space.common
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.CoreMatchers.instanceOf
 import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Assert.assertNull
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
@@ -84,15 +86,21 @@ class LiveResultTest {
         liveResult.loading("Hello Obvious")
         ///then
         assertThat(liveResult.isLoading(), `is`(true))
+        assertThat(liveResult.getData(), `is`("Hello Obvious"))
+        assertNull(liveResult.getError())
 
         //when
         liveResult.success("I love TDD & clean code")
         ///then
         assertThat(liveResult.isSuccess(), `is`(true))
+        assertThat(liveResult.getData(), `is`("I love TDD & clean code"))
+        assertNull(liveResult.getError())
 
         //when
         liveResult.error("!", throwable = error)
         ///then
         assertThat(liveResult.isError(), `is`(true))
+        assertThat(liveResult.getData(), `is`("!"))
+        assertThat(liveResult.getError(), instanceOf(NullPointerException::class.java))
     }
 }
