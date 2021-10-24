@@ -5,8 +5,8 @@ package com.nasa.space.common
  * */
 sealed class Result<T>(open val data: T? = null) {
     fun isLoading() = this is Loading
-    fun isError() = this is Error
     fun isSuccess() = this is Success
+    fun isError() = this is Error
     fun hasData() = data != null
 }
 
