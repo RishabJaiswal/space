@@ -3,7 +3,6 @@ package com.nasa.space.features.photo.listing
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.nasa.space.common.Loading
-import com.nasa.space.common.Result
 import com.nasa.space.common.Success
 import com.nasa.space.features.photo.common.data.Photo
 import com.nasa.space.features.photo.common.data.PhotoRepository
