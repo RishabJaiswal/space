@@ -7,9 +7,11 @@ import com.nasa.space.common.extensions.addTo
 import com.nasa.space.common.extensions.subscribeOnBackObserverOnMain
 import com.nasa.space.features.photo.common.data.PhotoRepository
 import com.nasa.space.features.photo.common.data.Photos
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import javax.inject.Inject
 
+@HiltViewModel
 class PhotosViewModel @Inject constructor(
     private val photoRepository: PhotoRepository
 ) : ViewModel() {
