@@ -5,32 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:contentDescription="@string/spacePhoto_contentDescription_default"
+    android:padding="8dp"
     tools:background="#363062">
 
     <ImageView
         android:id="@+id/details_background"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/list_photo_outline"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/photo"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/photo"
-        app:layout_constraintTop_toTopOf="@+id/photo" />
+        app:layout_constraintTop_toTopOf="@+id/photo"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/photo"
-        android:layout_width="120dp"
+        android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/spacePhoto_contentDescription_default"
         android:cropToPadding="false"
         android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
@@ -41,13 +42,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:textColor="#D8B9C3"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/details_background"
-        app:layout_constraintStart_toEndOf="@+id/photo"
-        app:layout_constraintTop_toTopOf="@+id/details_background"
+        app:layout_constraintStart_toStartOf="@+id/details_background"
+        app:layout_constraintTop_toBottomOf="@+id/photo"
         tools:text="Red star " />
 
     <TextView
@@ -57,7 +58,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
-        android:maxLines="3"
+        android:maxLines="1"
         android:textColor="#827397"
         app:layout_constraintBottom_toBottomOf="@+id/details_background"
         app:layout_constraintEnd_toEndOf="@+id/title"
