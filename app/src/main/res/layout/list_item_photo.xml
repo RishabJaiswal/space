@@ -4,12 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:contentDescription="@string/spacePhoto_contentDescription_default">
+    android:contentDescription="@string/spacePhoto_contentDescription_default"
+    tools:background="#363062">
+
+    <ImageView
+        android:id="@+id/details_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/list_photo_outline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/photo"
+        app:layout_constraintTop_toTopOf="@+id/photo" />
 
     <ImageView
         android:id="@+id/photo"
         android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
@@ -25,19 +40,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:textColor="#D8B9C3"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/photo"
-        app:layout_constraintTop_toTopOf="@+id/photo"
+        app:layout_constraintTop_toTopOf="@+id/details_background"
         tools:text="Red star " />
 
     <TextView
         android:id="@+id/details"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
-        android:maxLines="4"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:maxLines="3"
+        android:textColor="#827397"
+        app:layout_constraintBottom_toBottomOf="@+id/details_background"
+        app:layout_constraintEnd_toEndOf="@+id/details_background"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title"
         tools:text="@tools:sample/lorem/random" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
