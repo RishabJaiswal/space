@@ -1,7 +1,9 @@
 package com.nasa.space.common
 
 import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.CoreMatchers.instanceOf
 import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Assert.assertNull
 import org.junit.Test
 
 class ResultTest {
@@ -45,6 +47,24 @@ class ResultTest {
         assertThat(loading.data, `is`("Obvious"))
         assertThat(success.data, `is`("I love Craftspeople"))
         assertThat(error.data, `is`("!"))
+    }
+
+    @Test
+    fun `verify if states have valid throwable`() {
+        //given
+        val default = Default("")
+        val loading = Loading("")
+        val success = Success("")
+        val error = Error("", throwable = error)
+
+        //when //then
+        assertNull(default.getError())
+        assertNull(loading.getError())
+        assertNull(success.getError())
+        assertThat(
+            error.getError(),
+            instanceOf(java.lang.NullPointerException::class.java)
+        )
     }
 
     @Test

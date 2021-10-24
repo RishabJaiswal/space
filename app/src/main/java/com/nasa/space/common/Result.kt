@@ -8,6 +8,13 @@ sealed class Result<T>(open val data: T? = null) {
     fun isSuccess() = this is Success
     fun isError() = this is Error
     fun hasData() = data != null
+
+    fun getError(): Throwable? {
+        return if (this is Error)
+            this.throwable
+        else
+            null
+    }
 }
 
 data class Default<T>(
