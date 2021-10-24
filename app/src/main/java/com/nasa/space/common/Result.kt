@@ -24,5 +24,5 @@ data class Success<T>(
 
 data class Error<T>(
     override val data: T? = null,
-    val error: Throwable
+    val throwable: Throwable
 ) : Result<T>(data)

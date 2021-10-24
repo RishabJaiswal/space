@@ -13,7 +13,7 @@ class ResultTest {
         assertThat(Default<Any>().isLoading(), `is`(false))
         assertThat(Loading<Any>().isLoading(), `is`(true))
         assertThat(Success<Any>().isLoading(), `is`(false))
-        assertThat(Error<Any>(error = error).isLoading(), `is`(false))
+        assertThat(Error<Any>(throwable = error).isLoading(), `is`(false))
     }
 
     @Test
@@ -21,7 +21,7 @@ class ResultTest {
         assertThat(Default<Any>().isError(), `is`(false))
         assertThat(Loading<Any>().isError(), `is`(false))
         assertThat(Success<Any>().isError(), `is`(false))
-        assertThat(Error<Any>(error = error).isError(), `is`(true))
+        assertThat(Error<Any>(throwable = error).isError(), `is`(true))
     }
 
     @Test
@@ -29,7 +29,7 @@ class ResultTest {
         assertThat(Default<Any>().isSuccess(), `is`(false))
         assertThat(Loading<Any>().isSuccess(), `is`(false))
         assertThat(Success<Any>().isSuccess(), `is`(true))
-        assertThat(Error<Any>(error = error).isSuccess(), `is`(false))
+        assertThat(Error<Any>(throwable = error).isSuccess(), `is`(false))
     }
 
     @Test
@@ -38,7 +38,7 @@ class ResultTest {
         val default = Default("Hello")
         val loading = Loading("Obvious")
         val success = Success("I love Craftspeople")
-        val error = Error("!", error = error)
+        val error = Error("!", throwable = error)
 
         //when //then
         assertThat(default.data, `is`("Hello"))
@@ -64,7 +64,7 @@ class ResultTest {
         //error
         val error = NullPointerException()
         assertThat(Error("", error).hasData(), `is`(true))
-        assertThat(Error<Any>(error = error).hasData(), `is`(false))
+        assertThat(Error<Any>(throwable = error).hasData(), `is`(false))
     }
 
     @Test
