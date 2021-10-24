@@ -1,7 +1,7 @@
 package com.nasa.space.features.photo.common.data
 
 import com.google.gson.Gson
-import com.nasa.space.common.Utils
+import com.nasa.space.common.utils.Utils
 import org.junit.Test
 import java.lang.NullPointerException
 

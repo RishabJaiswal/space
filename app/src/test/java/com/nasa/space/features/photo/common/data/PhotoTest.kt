@@ -2,7 +2,7 @@ package com.nasa.space.features.photo.common.data
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.nasa.space.common.Utils
+import com.nasa.space.common.utils.Utils
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Before

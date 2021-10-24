@@ -1,5 +1,6 @@
-package com.nasa.space.common
+package com.nasa.space.common.utils
 
+import com.nasa.space.common.utils.Utils
 import org.junit.Assert.*
 import org.junit.Test
 
