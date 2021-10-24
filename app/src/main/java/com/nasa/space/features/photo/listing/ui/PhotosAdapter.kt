@@ -12,7 +12,6 @@ import com.nasa.space.common.utils.ImageLoader
 import com.nasa.space.databinding.ListItemPhotoBinding
 import com.nasa.space.features.photo.common.data.Photo
 import java.text.DateFormat.getDateInstance
-import java.text.SimpleDateFormat
 
 class PhotosAdapter(
     private val onPhotoClicked: (photo: Photo) -> Unit
@@ -50,7 +49,7 @@ class PhotosAdapter(
         fun bind(photo: Photo) = with(photoItemViewBinding) {
             title.text = photo.title
             ImageLoader.loadUrl(this.photo, photo.thumbnailUrl)
-            if(photo.clickedOn != null) {
+            if (photo.clickedOn != null) {
                 date.text = getDateInstance().format(photo.clickedOn)
             }
         }
