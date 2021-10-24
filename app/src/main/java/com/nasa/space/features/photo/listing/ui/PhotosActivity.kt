@@ -21,7 +21,6 @@ class PhotosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
-        setSupportActionBar(viewBinding.toolbar)
         setupPhotosRecyclerView()
         observePhotos()
         photosViewModel.getPhotos()
