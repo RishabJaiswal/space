@@ -1,10 +1,8 @@
 package com.nasa.space.common
 
 import org.hamcrest.CoreMatchers.`is`
-import org.junit.Test
 import org.hamcrest.MatcherAssert.assertThat
-import org.junit.BeforeClass
-import java.lang.NullPointerException
+import org.junit.Test
 
 class ResultTest {
 
