@@ -8,6 +8,7 @@ import com.nasa.space.common.Success
 import com.nasa.space.features.photo.common.data.Photo
 import com.nasa.space.features.photo.common.data.PhotoRepository
 import com.nasa.space.features.photo.common.data.Photos
+import com.nasa.space.features.photo.common.data.PhotosResult
 import io.reactivex.rxjava3.android.plugins.RxAndroidPlugins
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
@@ -36,10 +37,10 @@ class PhotosViewModelTest {
     private lateinit var photoRepository: PhotoRepository
 
     @Mock
-    private lateinit var observer: Observer<Result<Photos>>
+    private lateinit var photosObserver: Observer<PhotosResult>
 
     @Captor
-    private lateinit var argumentCaptor: ArgumentCaptor<Result<Photos>>
+    private lateinit var photosResultsCaptor: ArgumentCaptor<PhotosResult>
 
     @get:Rule
     val rule: TestRule = InstantTaskExecutorRule()
@@ -48,12 +49,12 @@ class PhotosViewModelTest {
     fun setup() {
         MockitoAnnotations.openMocks(this)
         photosViewModel = PhotosViewModel(photoRepository)
-        photosViewModel.photosLiveResult.observeForever(observer)
+        photosViewModel.photosLiveResult.observeForever(photosObserver)
     }
 
     @After
     fun tearDown() {
-        photosViewModel.photosLiveResult.removeObserver(observer)
+        photosViewModel.photosLiveResult.removeObserver(photosObserver)
     }
 
     @Test
@@ -65,11 +66,11 @@ class PhotosViewModelTest {
         photosViewModel.getPhotos()
 
         //then
-        verify(observer, times(3))
-            .onChanged(argumentCaptor.capture())
+        verify(photosObserver, times(3))
+            .onChanged(photosResultsCaptor.capture())
 
         //assertions
-        val resultStates = argumentCaptor.allValues
+        val resultStates = photosResultsCaptor.allValues
         assertThat(
             resultStates, `is`(
                 listOf(

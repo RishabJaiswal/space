@@ -2,11 +2,14 @@ package com.nasa.space.features.photo.common.data
 
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
+import com.nasa.space.common.Result
 import java.lang.reflect.Type
 import java.util.*
 
 typealias Photos = List<Photo>
+typealias PhotosResult = Result<Photos>
 val photosType: Type = object : TypeToken<Photos>() {}.type
+
 
 data class Photo(
     @SerializedName("title")
