@@ -1,11 +1,14 @@
 package com.nasa.space.features.photo.listing.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.nasa.space.databinding.ActivityMainBinding
 import com.nasa.space.features.photo.listing.PhotosViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PhotosActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityMainBinding
@@ -16,12 +19,12 @@ class PhotosActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
         setSupportActionBar(viewBinding.toolbar)
         setupPhotosRecyclerView()
         observePhotos()
+        photosViewModel.getPhotos()
     }
 
     private fun setupPhotosRecyclerView() {
@@ -31,7 +34,7 @@ class PhotosActivity : AppCompatActivity() {
     private fun observePhotos() {
         photosViewModel.photosLiveResult.observe(this) { photosResult ->
             if (photosResult.isSuccess()) {
-                val photos = photosResult.data
+                val photos = photosResult.data ?: emptyList()
                 photosAdapter.submitList(photos)
             }
         }
