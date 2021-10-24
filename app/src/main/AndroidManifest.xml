@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Space">
         <activity
-            android:name=".MainActivity"
+            android:name=".features.photo.listing.ui.PhotosActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Space.NoActionBar">
