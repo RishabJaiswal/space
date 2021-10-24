@@ -34,7 +34,6 @@ class ResultTest {
         assertThat(Error<Any>(error = error).isSuccess(), `is`(false))
     }
 
-
     @Test
     fun `verify if result states has valid data`() {
         //given
