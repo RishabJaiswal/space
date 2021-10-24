@@ -92,6 +92,9 @@ class ResultTest {
         assertThat(Default(""), `is`(Default("")))
         assertThat(Loading(""), `is`(Loading("")))
         assertThat(Success(""), `is`(Success("")))
-        assertThat(Error(""), `is`(Error("")))
+        assertThat(
+            Error("", throwable = error),
+            `is`(Error("", throwable = error))
+        )
     }
 }
