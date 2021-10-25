@@ -11,12 +11,16 @@ typealias PhotosResult = Result<Photos>
 
 val photosType: Type = object : TypeToken<Photos>() {}.type
 
+/**
+ * IMPORTANT: since scale of application is fairly small
+ * using single class for the data & ui models of photo
+ * */
 data class Photo(
     @SerializedName("title")
     val title: String = "",
 
     @SerializedName("explanation")
-    val details: String = "",
+    val explanation: String = "",
 
     @SerializedName("url")
     val thumbnailUrl: String = "",

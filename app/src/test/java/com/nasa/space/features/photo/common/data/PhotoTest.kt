@@ -30,7 +30,7 @@ class PhotoTest {
 
         //then
         assertThat(photo.title, `is`("M33: The Triangulum Galaxy"))
-        assertThat(photo.details, `is`("This is a small detail"))
+        assertThat(photo.explanation, `is`("This is a small detail"))
         assertThat(photo.copyrightOwner, `is`("Rui Liao"))
         assertThat(
             photo.thumbnailUrl,
