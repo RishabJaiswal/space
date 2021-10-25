@@ -10,7 +10,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class PhotoDetailsFragmentTest {
     @Test
-    fun ass() {
+    fun verifyPhotoDetailsView() {
         //given
         val photo = Photo(
             title = "Photo",
@@ -19,7 +19,7 @@ class PhotoDetailsFragmentTest {
         )
 
         //when
-        val scenario = launchFragmentInContainer {
+        launchFragmentInContainer {
             PhotoDetailsFragment(photo)
         }
 
