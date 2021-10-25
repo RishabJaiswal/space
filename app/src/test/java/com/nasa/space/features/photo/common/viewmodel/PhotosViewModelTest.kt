@@ -1,4 +1,4 @@
-package com.nasa.space.features.photo.listing
+package com.nasa.space.features.photo.common.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer

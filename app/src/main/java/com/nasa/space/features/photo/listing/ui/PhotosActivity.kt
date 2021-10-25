@@ -1,11 +1,10 @@
 package com.nasa.space.features.photo.listing.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.nasa.space.databinding.ActivityMainBinding
-import com.nasa.space.features.photo.listing.PhotosViewModel
+import com.nasa.space.features.photo.common.viewmodel.PhotosViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

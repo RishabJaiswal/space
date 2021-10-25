@@ -1,4 +1,4 @@
-package com.nasa.space.features.photo.listing
+package com.nasa.space.features.photo.common.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.nasa.space.common.LiveResult
