@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.nasa.space.databinding.ActivityMainBinding
 import com.nasa.space.features.photo.common.viewmodel.PhotosViewModel
+import com.nasa.space.features.photo.details.ui.PhotoDetailsActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,7 +14,11 @@ class PhotosActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityMainBinding
     private val photosViewModel: PhotosViewModel by viewModels()
     private val photosAdapter by lazy {
-        PhotosAdapter(onPhotoClicked = {})
+        PhotosAdapter(
+            onPhotoClicked = { _, position ->
+                startActivity(PhotoDetailsActivity.getIntent(this, position))
+            }
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
