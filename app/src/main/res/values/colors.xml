@@ -3,8 +3,8 @@
     <color name="primaryDark">#363062</color>
     <color name="primary">#4D4C7D</color>
     <color name="secondary">#827397</color>
-    <color name="text_secondary">#827397</color>
-    <color name="text">#D8B9C3</color>
+    <color name="text_secondary">#99FFFFFF</color>
+    <color name="text">#DEFFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
