@@ -9,7 +9,7 @@ class ImageLoader {
 
     companion object {
 
-        const val placeHolderId: Int = R.drawable.image_placeholder
+        private const val placeHolderId: Int = R.drawable.image_placeholder
 
         fun loadUrl(imageView: ImageView, url: String?) {
             if (!url.isNullOrEmpty()) {

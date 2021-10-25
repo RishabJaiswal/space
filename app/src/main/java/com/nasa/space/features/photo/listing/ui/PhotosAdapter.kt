@@ -14,7 +14,7 @@ import com.nasa.space.features.photo.common.data.Photo
 import java.text.DateFormat.getDateInstance
 
 class PhotosAdapter(
-    private val onPhotoClicked: (photo: Photo) -> Unit
+    private val onPhotoClicked: (photo: Photo, position: Int) -> Unit
 ) : ListAdapter<Photo, PhotosAdapter.PhotoViewHolder>(PhotoDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PhotoViewHolder(
@@ -43,7 +43,7 @@ class PhotosAdapter(
         override fun onClick(v: View?) {
             if (adapterPosition == RecyclerView.NO_POSITION) return
             val selectedPhoto = getItem(adapterPosition)
-            onPhotoClicked(selectedPhoto)
+            onPhotoClicked(selectedPhoto, adapterPosition)
         }
 
         fun bind(photo: Photo) = with(photoItemViewBinding) {
