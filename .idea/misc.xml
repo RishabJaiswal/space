@@ -5,7 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/image_placeholder.xml" value="0.2574074074074074" />
         <entry key="app/src/main/res/drawable/list_photo_outline.xml" value="0.2833333333333333" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2671875" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.2671875" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2671875" />
         <entry key="app/src/main/res/layout/list_item_photo.xml" value="0.45" />
