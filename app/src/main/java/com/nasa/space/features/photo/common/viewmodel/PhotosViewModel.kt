@@ -29,6 +29,12 @@ class PhotosViewModel @Inject constructor(
             .addTo(disposables)
     }
 
+    fun getPhotoUrl(position: Int): String? {
+        return photosLiveResult.getData()?.let { photos ->
+            photos[position].hdUrl
+        }
+    }
+
     override fun onCleared() {
         disposables.clear()
         super.onCleared()

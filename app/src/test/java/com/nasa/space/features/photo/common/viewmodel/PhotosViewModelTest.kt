@@ -28,7 +28,7 @@ class PhotosViewModelTest {
     private val photos: Photos by lazy {
         arrayListOf(
             Photo(title = "Photo1"),
-            Photo(title = "Photo2"),
+            Photo(title = "Photo2", hdUrl = "url2"),
         )
     }
 
@@ -76,6 +76,10 @@ class PhotosViewModelTest {
                     Loading(), Loading(), Success(photos)
                 )
             )
+        )
+        assertThat(
+            photosViewModel.getPhotoUrl(1),
+            `is`("url2")
         )
     }
 
