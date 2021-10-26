@@ -12,14 +12,14 @@ class ImageLoader {
         private const val placeHolderId: Int = R.drawable.image_placeholder
 
         fun loadUrl(imageView: ImageView, url: String?) {
+            val picasso = Picasso.get()
+
             if (!url.isNullOrEmpty()) {
-                Picasso.get()
-                    .load(url)
+                picasso.load(url)
                     .placeholder(placeHolderId)
                     .into(imageView)
             } else {
-                Picasso.get()
-                    .load(placeHolderId)
+                picasso.load(placeHolderId)
                     .into(imageView)
             }
         }

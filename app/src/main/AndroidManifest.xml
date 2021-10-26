@@ -10,9 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Space">
-        <activity
-            android:name=".features.photo.details.ui.PhotoDetailsActivity"
-            android:exported="true" />
+
         <activity
             android:name=".features.photo.listing.ui.PhotosActivity"
             android:exported="true"
@@ -20,10 +18,15 @@
             android:theme="@style/Theme.Space.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".features.photo.details.ui.PhotoDetailsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Space.NoActionBar" />
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

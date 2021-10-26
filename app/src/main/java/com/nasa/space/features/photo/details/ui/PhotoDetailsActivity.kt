@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.MarginPageTransformer
+import com.nasa.space.common.extensions.dpToPx
 import com.nasa.space.databinding.ActivityPhotoDetailsBinding
 import com.nasa.space.features.photo.common.data.Photos
 import com.nasa.space.features.photo.common.viewmodel.PhotosViewModel
@@ -26,7 +28,12 @@ class PhotoDetailsActivity : AppCompatActivity() {
 
 
     private fun setupPhotosPager(photos: Photos) {
-        viewBinding.photosPager.adapter = PhotosPagerAdapter(this, photos)
+        viewBinding.photosPager.apply {
+            adapter = PhotosPagerAdapter(this@PhotoDetailsActivity, photos)
+            offscreenPageLimit = 3
+            val margin = 16.dpToPx(resources.displayMetrics)
+            setPageTransformer(MarginPageTransformer(margin))
+        }
     }
 
     private fun showSelectedPhoto() {
