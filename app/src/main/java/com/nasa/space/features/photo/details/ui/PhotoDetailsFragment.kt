@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.nasa.space.common.utils.ImageLoader
 import com.nasa.space.databinding.FragmentPhotoDetailsBinding
 import com.nasa.space.features.photo.common.data.Photo
 
@@ -19,7 +18,6 @@ class PhotoDetailsFragment(val photo: Photo) : Fragment() {
     ): View {
         viewBinding = FragmentPhotoDetailsBinding.inflate(inflater, container, false)
         return viewBinding.let {
-            ImageLoader.loadUrl(it.photo, photo.hdUrl)
             it.title.text = photo.title
             it.copyrightOwner.text = photo.copyrightOwner
             it.explanation.text = photo.explanation

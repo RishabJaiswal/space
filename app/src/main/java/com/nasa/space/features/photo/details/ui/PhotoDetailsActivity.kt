@@ -6,7 +6,9 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.MarginPageTransformer
+import androidx.viewpager2.widget.ViewPager2
 import com.nasa.space.common.extensions.dpToPx
+import com.nasa.space.common.utils.ImageLoader
 import com.nasa.space.databinding.ActivityPhotoDetailsBinding
 import com.nasa.space.features.photo.common.data.Photos
 import com.nasa.space.features.photo.common.viewmodel.PhotosViewModel
@@ -33,6 +35,19 @@ class PhotoDetailsActivity : AppCompatActivity() {
             offscreenPageLimit = 3
             val margin = 16.dpToPx(resources.displayMetrics)
             setPageTransformer(MarginPageTransformer(margin))
+
+            //on page change
+            registerOnPageChangeCallback(
+                object : ViewPager2.OnPageChangeCallback() {
+                    override fun onPageSelected(position: Int) {
+                        super.onPageSelected(position)
+                        ImageLoader.loadUrl(
+                            viewBinding.photo,
+                            photosViewModel.getPhotoUrl(position)
+                        )
+                    }
+                }
+            )
         }
     }
 
