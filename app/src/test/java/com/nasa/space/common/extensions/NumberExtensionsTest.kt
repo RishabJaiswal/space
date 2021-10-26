@@ -12,7 +12,7 @@ class NumberExtensionsTest {
     }
 
     @Test
-    fun `verify `() {
+    fun `verify dp to pixels conversion`() {
         val marginInPixels = 16.dpToPx(displayMetrics)
         assertThat(marginInPixels, `is`(32))
     }
