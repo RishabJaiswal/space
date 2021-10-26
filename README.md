@@ -42,6 +42,6 @@
   <li>The models to represent <i>Photo</i> for ui & data are <b>NOT</b> separated for <b>Space app</b> being a fairly simple use-case</li>
 </ul>
 
+<h2> App Demo </h2>
 
-<h2> Demo </h2>
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://github.com/RishabJaiswal/space/blob/main/demo.gif)
