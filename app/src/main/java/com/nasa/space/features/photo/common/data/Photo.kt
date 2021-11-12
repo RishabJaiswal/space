@@ -32,5 +32,7 @@ data class Photo(
     val copyrightOwner: String = "",
 
     @SerializedName("date")
-    val clickedOn: Date? = null
+    val clickedOn: Date? = null,
+
+    val isBookmarked: Boolean = false
 )

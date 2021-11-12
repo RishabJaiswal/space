@@ -32,6 +32,7 @@ class PhotoTest {
         assertThat(photo.title, `is`("M33: The Triangulum Galaxy"))
         assertThat(photo.explanation, `is`("This is a small detail"))
         assertThat(photo.copyrightOwner, `is`("Rui Liao"))
+        assertThat(photo.isBookmarked, `is`(false))
         assertThat(
             photo.thumbnailUrl,
             `is`("https://apod.nasa.gov/apod/image/1912/M33-HaLRGB-RayLiao1024.jpg")
