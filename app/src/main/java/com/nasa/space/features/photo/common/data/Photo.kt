@@ -34,5 +34,5 @@ data class Photo(
     @SerializedName("date")
     val clickedOn: Date? = null,
 
-    val isBookmarked: Boolean = false
+    var isBookmarked: Boolean = false
 )
