@@ -4,10 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.nasa.space.common.Loading
 import com.nasa.space.common.Success
-import com.nasa.space.features.photo.common.data.Photo
-import com.nasa.space.features.photo.common.data.PhotoRepository
-import com.nasa.space.features.photo.common.data.Photos
-import com.nasa.space.features.photo.common.data.PhotosResult
+import com.nasa.space.features.photo.common.data.*
 import io.reactivex.rxjava3.android.plugins.RxAndroidPlugins
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
@@ -21,6 +18,7 @@ import org.mockito.Captor
 import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
+import java.util.*
 
 class PhotosViewModelTest {
 
@@ -81,6 +79,18 @@ class PhotosViewModelTest {
             photosViewModel.getPhotoUrl(1),
             `is`("url2")
         )
+    }
+
+    @Test
+    fun `verify that photos are being bookmarked`() {
+        //given
+        val date = Date(12345678)
+
+        //when
+        photosViewModel.bookmarkPhoto(date)
+
+        //then
+        assertThat(bookmarks.first(), `is`(date))
     }
 
     companion object {

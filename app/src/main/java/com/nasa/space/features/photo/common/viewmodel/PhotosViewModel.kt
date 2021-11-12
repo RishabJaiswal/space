@@ -7,8 +7,10 @@ import com.nasa.space.common.extensions.addTo
 import com.nasa.space.common.extensions.subscribeOnBackObserverOnMain
 import com.nasa.space.features.photo.common.data.PhotoRepository
 import com.nasa.space.features.photo.common.data.Photos
+import com.nasa.space.features.photo.common.data.bookmarks
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -38,5 +40,9 @@ class PhotosViewModel @Inject constructor(
     override fun onCleared() {
         disposables.clear()
         super.onCleared()
+    }
+
+    fun bookmarkPhoto(date: Date) {
+        bookmarks.add(date)
     }
 }
