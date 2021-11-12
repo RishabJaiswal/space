@@ -6,5 +6,13 @@ import javax.inject.Inject
 class PhotoRepository @Inject constructor(
     private val photoApiService: PhotoApiService
 ) {
-    fun getPhotos(): Single<Photos> = photoApiService.getPhotos()
+    fun getPhotos(): Single<Photos> {
+        return photoApiService.getPhotos().map { photos ->
+            photos.onEach { photo ->
+                bookmarks.forEach { date ->
+                    photo.isBookmarked = photo.clickedOn == date
+                }
+            }
+        }
+    }
 }
